@@ -154,27 +154,77 @@ def task_10():
 
 #### Задание 7.11
 def task_11():
-    print("Go out from my swamp!")
+
+    #Дана строка, в которой буква h встречается как минимум
+    #два раза. Разверните последовательность символов,
+    #заключенную между первым и последним появлением
+    #буквы h, в противоположном порядке.
+
+    str = input("\nВведите строку: ").lower()
+    partOne = str[:str.find('h')]
+    partTwo = str[str.find('h'):str.rfind('h') + 1]
+    partThree = str[str.rfind('h') + 1:]
+    newStr = partOne + partTwo[::-1] + partThree
+    print("Новая строка: ", newStr, "\n")
+    taskChoice()
 
 #### Задание 7.12
 def task_12():
-    print("Go out from my swamp!")
+
+    #Дана строка. Замените в этой строке все цифры 1 на слово
+
+    str = input("\nВведите строку: ").replace('1', 'one')
+    print("Новая строка: ", str, "\n")
+    taskChoice()
 
 #### Задание 7.13
 def task_13():
-    print("Go out from my swamp!")
+
+    #Дана строка. Удалите из этой строки все символы @.
+
+    str = input("\nВведите строку: ").replace('@', '')
+    print("Новая строка: ", str, "\n")
+    taskChoice()
 
 #### Задание 7.14
 def task_14():
-    print("Go out from my swamp!")
+
+    #Дана строка. Замениnе в этой строке все появления буквы
+    #h на букву H, кроме первого и последнего вхождения.
+
+    str = input("\nВведите строку: ")
+    partOne = str[:str.find('h') + 1]
+    partTwo = str[str.find('h') + 1:str.rfind('h')]
+    partThree = str[str.rfind('h'):]
+    newStr = partOne + partTwo.replace('h', 'H') + partThree
+    print("Новая строка: ", newStr, "\n")
+    taskChoice()
 
 #### Задание 7.15
 def task_15():
-    print("Go out from my swamp!")
+
+    #Дана строка. Удалите из нее все символы,
+    #чьи индексы делятся на 3.
+
+    str = input("\nВведите строку: ")
+    newStr = ""
+    for i in range(len(str)):
+        if i % 3 != 0:
+            newStr = newStr + str[i]
+    print("Новая строка: ", newStr, "\n")
+    taskChoice()
 
 #### Задание 7.16
 def task_16():
-    print("Go out from my swamp!")
+
+    #Ввести с клавиатуры в одну строку фамилию, имя и
+    #отчество, разделив их пробелом.
+    #Вывести фамилию и инициалы.
+
+    str = input("\nВведите ФИО: ")
+
+    print("Фамилия и инициалы: ", newStr, "\n")
+    taskChoice()
 
 #### Задание 7.17
 def task_17():
@@ -268,8 +318,13 @@ def taskChoice():
         elif taskNumber == 29: task_29()
         elif taskNumber == 30: task_30()
         else:
-            print("Такого задания нет. Попробуйте вновь")
+            print("\nТакого задания нет. Попробуйте вновь\n")
             taskChoice()
     except ValueError:
-        print("Введите число.")
+        print("\nВведите число.\n")
+        taskChoice()
+    except KeyboardInterrupt:
+        print(" ")
+
+print("\nДля выхода нажмите 'ctrl + c'\n")
 taskChoice()
