@@ -221,22 +221,52 @@ def task_16():
     #отчество, разделив их пробелом.
     #Вывести фамилию и инициалы.
 
-    str = input("\nВведите ФИО: ")
-
-    print("Фамилия и инициалы: ", newStr, "\n")
+    str = input("\nВведите ФИО: ").split()
+    lastName, name, otchestvo = str[0], str[1], str[2]
+    print("Фамилия и инициалы: ", lastName, name[0:1] + "." + otchestvo[0:1] + ".", "\n")
     taskChoice()
 
 #### Задание 7.17
 def task_17():
-    print("Go out from my swamp!")
+
+    #Дан адрес файла. Программа должна разбирать его на
+    #части, разделенные знаком /. Каждую часть
+    #выводить с отдельной строки.
+
+    str = input("\nВведите адрес файла: ").split('/')
+    print("Разбитый адрес: \n")
+    for i in range(len(str)):
+        print(str[i])
+    print("\n")
+    taskChoice()
 
 #### Задание 7.18
 def task_18():
-    print("Go out from my swamp!")
+
+    #Дан URL-адрес. Разберете его на составляющие по примеру.
+    # ftp://filerepo.com:21/arch.zip
+
+    str = input("\nВведите URL-адрес: ")
+    data = ["Protocol", "Domain", "Port", "FileName", "FileType"]
+    data[0] += ": " + str[:str.find(":")]
+    data[1] += ": " + str[str.find("/") + 2:str.rfind(":")]
+    data[2] += ": " + str[str.rfind(":") + 1:str.rfind("/")]
+    data[3] += ": " + str[str.rfind("/") + 1:str.rfind(".")]
+    data[4] += ": " + str[str.rfind(".") + 1:]
+    for i in range(len(data)):
+        print(data[i])
+    taskChoice()
 
 #### Задание 7.19
 def task_19():
-    print("Go out from my swamp!")
+
+    #Напишите программу, которая заменяет
+    #расширение файла на заданное новое расширение.
+
+    str = input("\nВведите имя файла: ")
+    ext = input("\nВведите новое расширение: ")
+
+    taskChoice()
 
 #### Задание 7.20
 def task_20():
